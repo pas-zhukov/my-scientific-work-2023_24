@@ -39,7 +39,7 @@ class Measurements:
 class PotentiostatMeasurements(Measurements):
     def __init__(self, path_to_file: str):
         potentiostat_measurements = pd.read_csv(path_to_file, skiprows=25, sep="\t",
-                                                names=["E(V)", "i(A/cm?)", "T(s)"])
+                                                names=["E(V)", "i(A/cm?)", "T(s)"], encoding='cp1251')
         potentiostat_seconds = [float(str(measure).split(' ')[0]) for measure in potentiostat_measurements["T(s)"]]
         potentiostat_voltage = potentiostat_measurements["E(V)"]
         potentiostat_current = potentiostat_measurements["i(A/cm?)"]
