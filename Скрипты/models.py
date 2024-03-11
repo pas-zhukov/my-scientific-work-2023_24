@@ -3,6 +3,7 @@ import pandas as pd
 from scipy.signal import argrelextrema
 from matplotlib import pyplot as plt
 
+
 class Measurements:
     def __init__(self, time, voltage, current):
         self.time = time

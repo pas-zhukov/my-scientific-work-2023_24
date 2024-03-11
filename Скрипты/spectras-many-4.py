@@ -1,13 +1,13 @@
 import pandas as pd
 from matplotlib import pyplot as plt
 
-file_1 = "../Измерения/Со спектрометра Клинкова/26.12.23/091_light_3.csv"
-file_2 = "../Измерения/Со спектрометра Клинкова/26.12.23/094_light_3.csv"
-file_3 = "../Измерения/Со спектрометра Клинкова/26.12.23/099_light_3.csv"
-file_4 = "../Измерения/Со спектрометра Клинкова/26.12.23/103_light_3.csv"
+file_1 = "../Измерения/Со спектрометра Клинкова/28.02.24/099/ц1000 окр сост.csv"
+file_2 = "../Измерения/Со спектрометра Клинкова/28.02.24/099/ц1000 обесцв сост.csv"
+file_3 = "../Измерения/Со спектрометра Клинкова/01.03.24/099/ц1047 окр сост.csv"
+file_4 = "../Измерения/Со спектрометра Клинкова/01.03.24/099/ц1047 обесцв сост.csv"
 
 
-TITLE = "Сравнительный спектр в обесцвеченном состоянии на 103 цикле"
+TITLE = "Сравнительный спектр в 99 образца на 1000 и 1047 цикле"
 
 
 spectra_1 = pd.read_csv(file_1, delimiter=";", decimal=",", names=["wavelength", "intensity"])
@@ -18,15 +18,15 @@ spectra_4 = pd.read_csv(file_4, delimiter=";", decimal=",", names=["wavelength",
 
 fig, ax = plt.subplots(1, 1, figsize=(10, 7))
 
-ax.plot(spectra_1["wavelength"], spectra_1["intensity"], 'r-')
-ax.plot(spectra_2["wavelength"], spectra_2["intensity"], 'y-')
-ax.plot(spectra_3["wavelength"], spectra_3["intensity"], 'g-')
+ax.plot(spectra_1["wavelength"], spectra_1["intensity"], 'r--')
+ax.plot(spectra_2["wavelength"], spectra_2["intensity"], 'r-')
+ax.plot(spectra_3["wavelength"], spectra_3["intensity"], 'b--')
 ax.plot(spectra_4["wavelength"], spectra_4["intensity"], 'b-')
 
-ax.legend(["Образец 091",
-           "Образец 094",
-           "Образец 099",
-           "Образец 103",
+ax.legend(["Ц1000 окр. сост.",
+           "Ц1000 обесцв. сост.",
+           "Ц1047 окр. сост.",
+           "Ц1047 обесцв. сост.",
            ])
 
 
@@ -40,4 +40,4 @@ ax.grid()
 fig.tight_layout()
 fig.show()
 
-fig.savefig("../Картинки/Спектры/В окрашенном и обесцвеченном состоянии после 100 цикла (26.12.23)/" + TITLE + ".png", dpi=300)
+fig.savefig("../Картинки/Спектры/" + TITLE + ".png", dpi=300)
