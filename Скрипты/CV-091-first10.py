@@ -45,7 +45,7 @@ ax.set_xlim(-0.21, 0.7)
 ax.set_ylim(-0.15, 0.2)
 
 # ax.grid()
-# fig.tight_layout()
+fig.tight_layout()
 fig.show()
 
-fig.savefig("../Картинки/ЦВА/091 первые 10 циклов.png", dpi=300)
+fig.savefig("../Картинки/ЦВА/091 первые 10 циклов.png", dpi=500)
