@@ -3,7 +3,28 @@
   <component name="CsvFileAttributes">
     <option name="attributeMap">
       <map>
+        <entry key="\Измерения\Со спектрометра Клинкова\19.01.24\175_dry.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\Измерения\Со спектрометра Клинкова\22.12.23\cycles\91\15_dark.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\Измерения\Со спектрометра Клинкова\22.12.23\sample_103_wet (сравнения - кювета с водой).csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\Измерения\Со спектрометра Клинкова\26.12.23\103_dark_3.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
