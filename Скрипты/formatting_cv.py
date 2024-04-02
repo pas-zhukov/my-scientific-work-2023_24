@@ -4,8 +4,8 @@ from matplotlib import pyplot as plt
 
 from models import PotentiostatMeasurements
 
-cor_file = "../Измерения/20.12.23/097_cv.cor"
-result_file = "../Измерения/По образцам/CV/091/Цикл 10.xlsx"
+cor_file = "../Измерения/27.03.24/181_CV_2cycles_10mVs_27.03.cor"
+result_file = "../Измерения/По образцам/CV/181/181 ЦВА Цикл 514.xlsx"
 
 sample = PotentiostatMeasurements(cor_file)
 

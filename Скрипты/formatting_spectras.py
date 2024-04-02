@@ -1,10 +1,10 @@
 import pandas as pd
 from matplotlib import pyplot as plt
 
-file_1 = "../Измерения/Со спектрометра Клинкова/26.12.23/103_light_3.csv"
-file_2 = "../Измерения/Со спектрометра Клинкова/26.12.23/103_dark_3.csv"
+file_1 = "../Измерения/27.03.24/099/ц(N+11) обесцв.csv"
+file_2 = "../Измерения/27.03.24/099/ц(N+11) окр.csv"
 
-file_result = "../Измерения/По образцам/103/103 Цикл №103.xlsx"
+file_result = "../Измерения/По образцам/099/099 Убитый.xlsx"
 
 measurements_1 = pd.read_csv(file_1, delimiter=";", decimal=",", names=["Wavelength, nm", "Transmittance, % (bleached)"])
 measurements_2 = pd.read_csv(file_2, delimiter=";", decimal=",", names=["Wavelength, nm", "Transmittance, % (colored)"])
