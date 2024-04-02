@@ -1,11 +1,11 @@
 import numpy as np
 import pandas as pd
-from scipy.signal import argrelextrema
+# from scipy.signal import argrelextrema
 from matplotlib import pyplot as plt
 
 from models import PotentiostatMeasurements
 
-cor_file = "../Измерения/20.12.23/097_cv.cor"
+cor_file = "../Измерения/20.12.23/091.cor"
 
 sample = PotentiostatMeasurements(cor_file)
 
@@ -48,4 +48,4 @@ ax.set_ylim(-0.15, 0.2)
 # fig.tight_layout()
 fig.show()
 
-fig.savefig("../Картинки/ЦВА/091 первые 10 циклов.png", dpi=300)
+# fig.savefig("../Картинки/ЦВА/091 первые 10 циклов.png", dpi=300)
