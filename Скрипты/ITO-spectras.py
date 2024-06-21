@@ -25,6 +25,8 @@ def main():
 
     ax.plot(ito700_t_data["wavelength"], smooth(ito700_t_data["transm"]), color="pink")
     ax2.plot(ito700_r_data["wavelength"], smooth(ito700_r_data["refl"]), color="pink")
+
+    ax.legend(["Образец 99", "Образец 91"], loc="center left", fontsize=16)
     # reflectance = measurements["refl"]
     # w = np.hanning(5)
     # reflectance = np.convolve(w / w.sum(), reflectance, mode='same')
@@ -34,9 +36,11 @@ def main():
     # ax.set_aspect(2000)
     # ax2.set_aspect(2000)
 
-    ax.set_ylabel("Transmittance", size=20)
-    ax.set_xlabel("Wavelength", size=20)
-    ax2.set_ylabel("Reflectance", size=20)
+
+
+    ax.set_ylabel("Пропускание, %", size=20)
+    ax.set_xlabel("Длина волны, нм", size=20)
+    ax2.set_ylabel("Отражение, %", size=20)
 
     ax.tick_params(axis="both", direction="in", length=8)
     ax2.tick_params(axis="both", direction="in", length=8)
@@ -48,7 +52,7 @@ def main():
     fig.tight_layout()
     fig.show()
 
-    # fig.savefig("../Картинки/Спектры/П.png", dpi=300)
+    fig.savefig("../Картинки/Спектры/айтио.png", dpi=300)
 
 
 def smooth(a):

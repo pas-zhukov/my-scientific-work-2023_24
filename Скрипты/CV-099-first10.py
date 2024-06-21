@@ -19,13 +19,13 @@ ax.plot(sample.voltage[:s1], current[:s1], 'c-')
 ax.plot(sample.voltage[s1:], current[s1:], 'b-')
 
 arrow = ax.arrow(0.37, 0.2, 0.04, 0.25, width=0.002)
-plt.annotate("cycle increase", (0.37, 0.2), (0.24, 0.2))
+plt.annotate("рост № цикла", (0.37, 0.2), (0.24, 0.2))
 
 ax.set_aspect(0.5)
 #ax.set_title("Sample 091")
 
-ax.set_xlabel(r"Sample potential, $V$", size=20)
-ax.set_ylabel(r"Current Density, $mA/cm^2$", size=20)
+ax.set_xlabel(r"Потенциал образца, $В$", size=20)
+ax.set_ylabel(r"Плотность тока, $мА/см^2$", size=20)
 
 # ax.legend(["1 цикл", "2-10 циклы"])
 # ax.ticklabel_format(style = 'plain')

@@ -1,0 +1,22 @@
+Pt / H2SO4   
+50 Â/ñ
+
+[AxisX]
+Max=199.959
+Min=0.154
+Incr=0
+Auto=1
+Inv=0
+Log=0
+iAxisType=0
+UnitIndex=1
+
+[AxisY]
+Max=13.0968761444092
+Min=-22.2377300262451
+Incr=0
+Auto=1
+Inv=0
+Log=0
+iAxisType=0
+UnitIndex=1
