@@ -31,10 +31,10 @@ def main():
     j = 0
     k=0
     colors = ["deepskyblue", "b", "r", "maroon", 'green', 'orange']
-    txt = ["098","098"]
+    txt = ["Bleached","Colored"]
     for df in dfs:
         if i % 2 == 0:
-            ax.plot(df["wl"], df["t"], color=colors[k], label="Образец №"+txt[j].__str__())
+            ax.plot(df["wl"], df["t"], color=colors[k], label=txt[j].__str__())
         else:
             ax.plot(df["wl"], df["t"], color=colors[k])
         i+=1
@@ -70,6 +70,8 @@ def main():
 
     ax.set_ylim(0, 100)
     ax.set_xlim(350, 900)
+
+    ax.legend(fontsize=20)
 
     fig.tight_layout()
     plt.show()
