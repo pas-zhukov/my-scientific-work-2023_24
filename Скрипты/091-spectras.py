@@ -9,14 +9,14 @@ def main():
     c15l = "../Измерения/Со спектрометра Клинкова/22.12.23/cycles/91/15_light.csv"
     c103d = "../Измерения/Со спектрометра Клинкова/26.12.23/091_dark_3.csv"
     c103l = "../Измерения/Со спектрометра Клинкова/26.12.23/091_light_3.csv"
-    c900d = "../Измерения/Со спектрометра Клинкова/09.02.24/091/dark.csv"
-    c900l = "../Измерения/Со спектрометра Клинкова/09.02.24/091/transparent.csv"
+    # c900d = "../Измерения/Со спектрометра Клинкова/09.02.24/091/dark.csv"
+    # c900l = "../Измерения/Со спектрометра Клинкова/09.02.24/091/transparent.csv"
     c1000l = "../Измерения/Со спектрометра Клинкова/28.02.24/091/ц1000 обесцв сост.csv"
     c1000d = "../Измерения/Со спектрометра Клинкова/28.02.24/091/ц1000 окр сост.csv"
     c1800l = "../Измерения/Со спектрометра Клинкова/24.05.24/091 ц1811 обесцв.csv"
     c1800d = "../Измерения/Со спектрометра Клинкова/24.05.24/091 ц1811 окр.csv"
 
-    mes = [c15l, c15d, c103l, c103d, c900l, c900d, c1000l, c1000d, c1800l, c1800d]
+    mes = [c15l, c15d, c103l, c103d, c1000l, c1000d, c1800l, c1800d]
     dfs = []
     for m in mes:
         dfs.append(pd.read_csv(m, delimiter=";", decimal=",", names=["wl", "t"]))
@@ -24,12 +24,12 @@ def main():
 
     dfs[2].t += 0
     dfs[3].t += 0
-    dfs[4].t += -0.8
-    dfs[5].t += -0.8
+    dfs[4].t += -1.3
+    dfs[5].t += -1.3
     dfs[6].t += -1.2
     dfs[7].t += -1.2
-    dfs[8].t += +0.7
-    dfs[9].t += 0.7
+    # dfs[6].t += +1.2
+    # dfs[7].t += 1.2
 
 
 
@@ -38,11 +38,11 @@ def main():
     i = 0
     j = 0
     k=0
-    colors = ["deepskyblue", "m", "r", "maroon", 'green']
-    txt = [15, 15, 100, 100, 900, 900, 1000, 1000, 1800, 1800]
+    colors = ["aqua", "deepskyblue", "teal", "midnightblue", 'green']
+    txt = [15, 15, 100, 100, 1000, 1000,  1800, 1800]
     for df in dfs:
         if i % 2 == 0:
-            ax.plot(df["wl"], df["t"], color=colors[k], label="Цикл №"+txt[j].__str__())
+            ax.plot(df["wl"], df["t"], color=colors[k], label="Cycle "+txt[j].__str__())
         else:
             ax.plot(df["wl"], df["t"], color=colors[k])
         i+=1
@@ -53,10 +53,10 @@ def main():
 
     ax.minorticks_on()
 
-    ax.set_ylabel("Пропускание, %", size=20)
-    ax.set_xlabel("Длина волны, нм", size=20)
+    ax.set_ylabel("Transmittance, %", size=24)
+    ax.set_xlabel("Wavelength, nm", size=24)
 
-    ax.tick_params(axis="both", direction="in", length=8, labelsize=16)
+    ax.tick_params(axis="both", direction="in", length=8, labelsize=18)
 
     ax2 = ax.secondary_yaxis("right")
     ax2.tick_params(axis="both", direction="in", length=8, labelcolor="white")
@@ -66,23 +66,23 @@ def main():
     ax.minorticks_on()
     ax.tick_params(which='minor', direction='in', length=2)
     ax.xaxis.set_minor_locator(plt.MultipleLocator(25))
-    ax.yaxis.set_minor_locator(plt.MultipleLocator(2.5))
+    ax.yaxis.set_minor_locator(plt.MultipleLocator(5))
     ax2.minorticks_on()
     ax2.tick_params(which='minor', direction='in')
-    ax2.yaxis.set_minor_locator(plt.MultipleLocator(2.5))
+    ax2.yaxis.set_minor_locator(plt.MultipleLocator(5))
     ax3.minorticks_on()
     ax3.tick_params(which='minor', direction='in')
     ax3.xaxis.set_minor_locator(plt.MultipleLocator(25))
 
-    ax.legend(fontsize='14')
+    ax.legend(fontsize='20')
 
     ax.set_ylim(50, 100)
     ax.set_xlim(350, 900)
 
     fig.tight_layout()
-    fig.show()
+    plt.show()
 
-    fig.savefig("../Картинки/Спектры/091 циклы 120624", dpi=500)
+    fig.savefig("../Картинки/Спектры/Спектры 91 образца", dpi=500)
 
 
 def smooth(a):

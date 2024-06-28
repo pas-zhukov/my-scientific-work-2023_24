@@ -20,13 +20,13 @@ def main():
     fig, ax = plt.subplots(1, 1, figsize=(10, 7))
     ax2 = ax.twinx()
 
-    ax.plot(ito2000_t_data["wavelength"], smooth(ito2000_t_data["transm"]), "m-")
-    ax2.plot(ito2000_r_data["wavelength"], smooth(ito2000_r_data["refl"]), "m-")
+    ax.plot(ito2000_t_data["wavelength"], smooth(ito2000_t_data["transm"]*100), "r")
+    ax2.plot(ito2000_r_data["wavelength"], smooth(ito2000_r_data["refl"]*100), "r")
 
-    ax.plot(ito700_t_data["wavelength"], smooth(ito700_t_data["transm"]), color="pink")
-    ax2.plot(ito700_r_data["wavelength"], smooth(ito700_r_data["refl"]), color="pink")
+    ax.plot(ito700_t_data["wavelength"], smooth(ito700_t_data["transm"]*100), color="b")
+    ax2.plot(ito700_r_data["wavelength"], smooth(ito700_r_data["refl"]*100), color="b")
 
-    ax.legend(["Образец 99", "Образец 91"], loc="center left", fontsize=16)
+    ax.legend(["NW700", "NW250"], loc="center", fontsize=20)
     # reflectance = measurements["refl"]
     # w = np.hanning(5)
     # reflectance = np.convolve(w / w.sum(), reflectance, mode='same')
@@ -38,21 +38,44 @@ def main():
 
 
 
-    ax.set_ylabel("Пропускание, %", size=20)
-    ax.set_xlabel("Длина волны, нм", size=20)
-    ax2.set_ylabel("Отражение, %", size=20)
+    ax.set_ylabel("Transmittance, %", size=24)
+    ax.set_xlabel("Wavelength, nm", size=24)
+    ax2.set_ylabel("Reflectance, %", size=24)
 
-    ax.tick_params(axis="both", direction="in", length=8)
-    ax2.tick_params(axis="both", direction="in", length=8)
+    ax.tick_params(axis="both", direction="in", length=8, labelsize=20)
+    ax2.tick_params(axis="both", direction="in", length=8, labelsize=20)
+    ax3 = ax.secondary_xaxis("top")
+    ax3.tick_params(axis="both", direction="in", length=8, labelcolor="white")
 
-    ax.set_ylim(0, 1)
-    ax2.set_ylim(0.00, 1)
-    ax.set_xlim(380, 1100)
+    ax.tick_params(axis="both", direction="in", length=8, labelsize=18)
+
+    ax3 = ax.secondary_xaxis("top")
+    ax3.tick_params(axis="both", direction="in", length=8, labelcolor="white")
+
+    ax.minorticks_on()
+    ax.tick_params(which='minor', direction='in', length=2)
+    ax.xaxis.set_minor_locator(plt.MultipleLocator(20))
+    ax2.xaxis.set_minor_locator(plt.MultipleLocator(20))
+    ax.yaxis.set_minor_locator(plt.MultipleLocator(5))
+    ax2.minorticks_on()
+    ax2.tick_params(which='minor', direction='in')
+    ax2.yaxis.set_minor_locator(plt.MultipleLocator(5))
+    ax3.minorticks_on()
+    ax3.tick_params(which='minor', direction='in')
+    ax3.xaxis.set_minor_locator(plt.MultipleLocator(20))
+
+    arrow = ax.arrow(800, 15, 100, 0, width=0.5, color="grey")
+    arrow2 = ax.arrow(600, 80, -100, 0, width=0.5, color="grey")
+
+
+    ax.set_ylim(0, 100)
+    ax2.set_ylim(0.00, 100)
+    ax.set_xlim(380, 1030)
 
     fig.tight_layout()
-    fig.show()
+    plt.show()
 
-    fig.savefig("../Картинки/Спектры/айтио.png", dpi=300)
+    fig.savefig("../Картинки/Спектры/Спектры ITO.png", dpi=500)
 
 
 def smooth(a):
