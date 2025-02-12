@@ -24,15 +24,10 @@ line2, = ax.plot(sample.voltage[s1:], current[s1:], 'b-', label="2-10 cycles")
 arrow = ax.arrow(0.487, 0.2, 0, 0.35, width=0.002, head_length=0.05, head_width=0.01, color="salmon")
 arrow2 = ax.arrow(0.280, -0.007, 0, -0.44, width=0.002, head_length=0.05, head_width=0.01, color="salmon")
 
-plt.annotate("cycle number", (0.3, 0.57), (0.3, 0.57), color="tomato", fontsize=20)
-plt.annotate("      increase", (0.3, 0.57), (0.3, 0.52), color="tomato", fontsize=20)
+plt.annotate("cycle number", (0.3, 0.57), (0.29, 0.57), color="tomato", fontsize=20)
+plt.annotate("      increase", (0.3, 0.57), (0.29, 0.52), color="tomato", fontsize=20)
 
-# arrow3 = ax.arrow(0.212, 0.14, 0.023, -0.023, width=0.002, color="c")
-# plt.annotate("1st cycle", (0.176, 0.15), (0.176, 0.15), color="c", fontsize=20)
-
-ax.set_aspect(0.5)
-#ax.set_title("Sample 099")
-
+ax.set_aspect('auto')  # Автоматическое масштабирование
 ax.set_xlabel(r"Sample potential, V", size=20)
 ax.set_ylabel(r"Current density, mA/cm²", size=20)
 
@@ -67,8 +62,9 @@ ax3.xaxis.set_minor_locator(plt.MultipleLocator(0.025))
 ax.set_xlim(-0.21, 0.7)
 ax.set_ylim(-0.5, 0.8)
 
-# ax.grid()
-fig.tight_layout()
+# Настройка отступов для одинаковых рамок
+fig.subplots_adjust(left=0.1, right=0.9, top=0.9, bottom=0.1)
+
 plt.show()
 
 fig.savefig("../Картинки/ЦВА/099 первые 10 циклов.png", dpi=500)
