@@ -3,6 +3,7 @@ import scipy.interpolate
 from matplotlib import pyplot as plt
 import numpy as np
 
+plt.rcParams['font.family'] = 'Arial'
 
 def main():
     ito700_r = "../Измерения/ito/rf_ITO700_eB_093.oli"
@@ -27,46 +28,37 @@ def main():
     ax2.plot(ito700_r_data["wavelength"], smooth(ito700_r_data["refl"]*100), color="b")
 
     ax.legend(["NW700", "NW250"], loc="center", fontsize=20)
-    # reflectance = measurements["refl"]
-    # w = np.hanning(5)
-    # reflectance = np.convolve(w / w.sum(), reflectance, mode='same')
-
-    # ax.plot(measurements["wavelength"], reflectance, 'b-')
-
-    # ax.set_aspect(2000)
-    # ax2.set_aspect(2000)
-
-
 
     ax.set_ylabel("Transmittance, %", size=24)
     ax.set_xlabel("Wavelength, nm", size=24)
     ax2.set_ylabel("Reflectance, %", size=24)
 
-    ax.tick_params(axis="both", direction="in", length=8, labelsize=20)
-    ax2.tick_params(axis="both", direction="in", length=8, labelsize=20)
-    ax3 = ax.secondary_xaxis("top")
-    ax3.tick_params(axis="both", direction="in", length=8, labelcolor="white")
+    # Увеличение толщины осей
+    for axis in ['top', 'bottom', 'left', 'right']:
+        ax.spines[axis].set_linewidth(2)
+        ax2.spines[axis].set_linewidth(2)
 
-    ax.tick_params(axis="both", direction="in", length=8, labelsize=18)
+    # Увеличение толщины тиков
+    ax.tick_params(axis="both", direction="in", length=8, labelsize=20, width=2)
+    ax2.tick_params(axis="both", direction="in", length=8, labelsize=20, width=2)
 
     ax3 = ax.secondary_xaxis("top")
-    ax3.tick_params(axis="both", direction="in", length=8, labelcolor="white")
+    ax3.tick_params(axis="both", direction="in", length=8, labelcolor="white", width=2)
 
     ax.minorticks_on()
-    ax.tick_params(which='minor', direction='in', length=2)
+    ax.tick_params(which='minor', direction='in', length=4, width=1.5)
     ax.xaxis.set_minor_locator(plt.MultipleLocator(20))
     ax2.xaxis.set_minor_locator(plt.MultipleLocator(20))
     ax.yaxis.set_minor_locator(plt.MultipleLocator(5))
     ax2.minorticks_on()
-    ax2.tick_params(which='minor', direction='in')
+    ax2.tick_params(which='minor', direction='in', width=1.5)
     ax2.yaxis.set_minor_locator(plt.MultipleLocator(5))
     ax3.minorticks_on()
-    ax3.tick_params(which='minor', direction='in')
+    ax3.tick_params(which='minor', direction='in', width=1.5)
     ax3.xaxis.set_minor_locator(plt.MultipleLocator(20))
 
-    arrow = ax.arrow(800, 15, 100, 0, width=0.5, color="grey")
-    arrow2 = ax.arrow(600, 80, -100, 0, width=0.5, color="grey")
-
+    arrow = ax.arrow(900, 15, 100, 0, width=0.3, head_width=1, head_length=10, color="grey")
+    arrow2 = ax.arrow(550, 80, -100, 0, width=0.3, head_width=1, head_length=10, color="grey")
 
     ax.set_ylim(0, 100)
     ax2.set_ylim(0.00, 100)
