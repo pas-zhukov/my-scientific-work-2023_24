@@ -17,16 +17,16 @@ per_cycle = 1800
 s1 = per_cycle * 1
 s2 = per_cycle * 11
 current = list(map(lambda x: 1000 * x / 5, sample.current))
-line1, = ax.plot(sample.voltage[:s1], current[:s1], 'c-', label="NW250 1'st cycle")
-line2, = ax.plot(sample.voltage[s1:], current[s1:], 'b-', label="NW250 2-10 cycles")
+line1, = ax.plot(sample.voltage[:s1], current[:s1], 'c-', label="1'st cycle")
+line2, = ax.plot(sample.voltage[s1:], current[s1:], 'b-', label="2-10 cycles")
 
-arrow = ax.arrow(0.487, 0.0439, 0, 0.1, width=0.002, color="salmon")
-arrow2 = ax.arrow(0.280, -0.007, 0, -0.125, width=0.002, color="salmon")
+arrow = ax.arrow(0.487, 0.0439, 0, 0.1, width=0.002, head_length=0.015, head_width=0.01, color="salmon")
+arrow2 = ax.arrow(0.280, -0.007, 0, -0.125, width=0.002, head_length=0.015, head_width=0.01, color="salmon")
 plt.annotate("cycle number", (0.3, 0.1488), (0.3, 0.1588), color="tomato", fontsize=20)
 plt.annotate("       increase", (0.3, 0.1488), (0.3, 0.1449), color="tomato", fontsize=20)
 
-arrow3 = ax.arrow(0.212, 0.05, 0.023, -0.023, width=0.002, color="c")
-plt.annotate("1st cycle", (0.176, 0.055), (0.176, 0.055), color="c", fontsize=20)
+# arrow3 = ax.arrow(0.212, 0.05, 0.023, -0.023, width=0.002, color="c")
+# plt.annotate("1st cycle", (0.176, 0.055), (0.176, 0.055), color="c", fontsize=20)
 
 ax.set_aspect(2)
 #ax.set_title("Sample 091")
@@ -41,8 +41,10 @@ for spine in ax.spines.values():
 # Увеличение толщины тиков
 ax.tick_params(axis="both", direction="in", length=8, labelsize=18, width=2)
 
-# Добавление легенды с небольшим смещением от верхнего левого угла
-ax.legend(fontsize='20', loc='upper left', bbox_to_anchor=(0.02, 0.98))
+# Добавление легенды с заголовком
+legend = ax.legend(fontsize='20', loc='upper left', bbox_to_anchor=(0.02, 0.98))
+plt.setp(legend.get_title(), fontsize='20', color='black')
+legend.set_title("NW250")
 
 ax2 = ax.secondary_yaxis("right")
 ax2.tick_params(axis="both", direction="in", length=8, labelcolor="white", width=2)
