@@ -39,7 +39,7 @@ def main():
     txt = [15, 15, 100, 100, 1000, 1000, 1800, 1800]
     for df in dfs:
         if i % 2 == 0:
-            ax.plot(df["wl"], df["t"], color=colors[k], label="NW250 cycle " + txt[j].__str__(), linewidth=2)
+            ax.plot(df["wl"], df["t"], color=colors[k], label="Сycle " + txt[j].__str__(), linewidth=2)
         else:
             ax.plot(df["wl"], df["t"], color=colors[k], linewidth=2)
         i += 1
@@ -50,8 +50,8 @@ def main():
 
     ax.minorticks_on()
 
-    ax.set_ylabel("Transmittance, %", size=24)
-    ax.set_xlabel("Wavelength, nm", size=24)
+    ax.set_ylabel("Transmittance, %", size=20)
+    ax.set_xlabel("Wavelength, nm", size=20)
 
     # Увеличение толщины осей
     for spine in ax.spines.values():
@@ -77,7 +77,9 @@ def main():
     ax3.xaxis.set_minor_locator(plt.MultipleLocator(25))
 
     # Добавление легенды в правый нижний угол с отступом от края
-    ax.legend(fontsize='20', loc='lower right', bbox_to_anchor=(0.95, 0.05))
+    legend = ax.legend(fontsize='20', loc='lower right', bbox_to_anchor=(0.95, 0.05))
+    plt.setp(legend.get_title(), fontsize='20', color='black')
+    legend.set_title("NW250")
 
     ax.set_ylim(50, 100)
     ax.set_xlim(350, 900)
