@@ -85,6 +85,15 @@ def main():
     # Настройка отступов для одинаковых рамок
     fig.subplots_adjust(left=0.1, right=0.9, top=0.9, bottom=0.1)
 
+    # Добавление стрелочек и надписей
+    ax.annotate('bleached', xy=(500, 93), xytext=(500, 88),
+                arrowprops=dict(facecolor='black', arrowstyle='->', lw=1.5),
+                fontsize=16, ha='center')
+
+    ax.annotate('colored', xy=(500, 77), xytext=(500, 82),
+                arrowprops=dict(facecolor='black', arrowstyle='->', lw=1.5),
+                fontsize=16, ha='center')
+
     plt.show()
 
     fig.savefig("../Картинки/Спектры/Спектры 91 образца.png", dpi=500)

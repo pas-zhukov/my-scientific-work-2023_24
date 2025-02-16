@@ -57,11 +57,11 @@ def main():
     ax3.tick_params(which='minor', direction='in', width=1.5)
     ax3.xaxis.set_minor_locator(plt.MultipleLocator(20))
 
-    arrow = ax.arrow(900, 15, 100, 0, width=0.3, head_width=1, head_length=10, color="grey")
-    arrow2 = ax.arrow(550, 80, -100, 0, width=0.3, head_width=1, head_length=10, color="grey")
+    arrow = ax.arrow(800, 19, 100, 0, width=0.3, head_width=1, head_length=10, color="grey")
+    arrow2 = ax.arrow(690, 80, -100, 0, width=0.3, head_width=1, head_length=10, color="grey")
 
-    arrow3 = ax.arrow(900, 15, -30, -5, width=0.4, head_width=0, head_length=0, color="grey")
-    arrow4 = ax.arrow(550, 80, 30, 7, width=0.4, head_width=0, head_length=0, color="grey")
+    arrow3 = ax.arrow(800, 19, -30, -6, width=0.4, head_width=0, head_length=0, color="grey")
+    arrow4 = ax.arrow(690, 80, 30, 7, width=0.4, head_width=0, head_length=0, color="grey")
 
     ax.set_ylim(0, 100)
     ax2.set_ylim(0.00, 100)
