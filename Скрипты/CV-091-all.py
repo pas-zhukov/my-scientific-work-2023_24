@@ -28,12 +28,7 @@ line2, = ax.plot(sample100.voltage[-1800:-1], list(map(lambda x: 1000 * x / 5, s
 line3, = ax.plot(sample1000.voltage[-1800:-1], list(map(lambda x: 1000 * x / 5, sample1000.current))[-1800:-1], color='teal', label="1000'th cycle")
 line4, = ax.plot(sample1800.voltage[-1800:-1], list(map(lambda x: 1000 * x / 5, sample1800.current))[-1800:-1], color='midnightblue', label="1800'th cycle")
 
-# arrow = ax.arrow(0.39, 0.05, 0.04, 0.05, width=0.002, color="salmon")
-# plt.annotate("cycle increase", (0.37, 0.05), (0.25, 0.05), color="tomato", fontsize=20)
-
-ax.set_aspect(2)
-#ax.set_title("Sample 091")
-
+ax.set_aspect('auto')  # Автоматическое масштабирование
 ax.set_xlabel(r"Sample potential, V", size=20)
 ax.set_ylabel(r"Current density, mA/cm²", size=20)
 
@@ -48,7 +43,6 @@ ax.tick_params(axis="both", direction="in", length=8, labelsize=18, width=2)
 legend = ax.legend(fontsize='20', loc='upper left', bbox_to_anchor=(0.02, 0.98))
 plt.setp(legend.get_title(), fontsize='20', color='black')
 legend.set_title("NW250")
-
 
 ax2 = ax.secondary_yaxis("right")
 ax2.tick_params(axis="both", direction="in", length=8, labelcolor="white", width=2)
@@ -69,8 +63,9 @@ ax3.xaxis.set_minor_locator(plt.MultipleLocator(0.025))
 ax.set_xlim(-0.21, 0.7)
 ax.set_ylim(-0.17, 0.26)
 
-# ax.grid()
-fig.tight_layout()
+# Настройка отступов для одинаковых рамок
+fig.subplots_adjust(left=0.1, right=0.9, top=0.9, bottom=0.1)
+
 plt.show()
 
 fig.savefig("../Картинки/ЦВА/Sample091 10 100 1000 1800.png", dpi=500)

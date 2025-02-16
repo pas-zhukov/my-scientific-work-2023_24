@@ -11,8 +11,6 @@ def main():
     c15l = "../Измерения/Со спектрометра Клинкова/22.12.23/cycles/91/15_light.csv"
     c103d = "../Измерения/Со спектрометра Клинкова/26.12.23/091_dark_3.csv"
     c103l = "../Измерения/Со спектрометра Клинкова/26.12.23/091_light_3.csv"
-    # c900d = "../Измерения/Со спектрометра Клинкова/09.02.24/091/dark.csv"
-    # c900l = "../Измерения/Со спектрометра Клинкова/09.02.24/091/transparent.csv"
     c1000l = "../Измерения/Со спектрометра Клинкова/28.02.24/091/ц1000 обесцв сост.csv"
     c1000d = "../Измерения/Со спектрометра Клинкова/28.02.24/091/ц1000 окр сост.csv"
     c1800l = "../Измерения/Со спектрометра Клинкова/24.05.24/091 ц1811 обесцв.csv"
@@ -30,7 +28,7 @@ def main():
     dfs[6].t += 1.2
     dfs[7].t += 1.2
 
-    fig, ax = plt.subplots(1, 1, figsize=(10, 7))
+    fig, ax = plt.subplots(1, 1, figsize=(10, 8))
 
     i = 0
     j = 0
@@ -39,7 +37,7 @@ def main():
     txt = [15, 15, 100, 100, 1000, 1000, 1800, 1800]
     for df in dfs:
         if i % 2 == 0:
-            ax.plot(df["wl"], df["t"], color=colors[k], label="Сycle " + txt[j].__str__(), linewidth=2)
+            ax.plot(df["wl"], df["t"], color=colors[k], label=txt[j].__str__() + "'th cycle", linewidth=2)
         else:
             ax.plot(df["wl"], df["t"], color=colors[k], linewidth=2)
         i += 1
@@ -84,7 +82,9 @@ def main():
     ax.set_ylim(50, 100)
     ax.set_xlim(350, 900)
 
-    fig.tight_layout()
+    # Настройка отступов для одинаковых рамок
+    fig.subplots_adjust(left=0.1, right=0.9, top=0.9, bottom=0.1)
+
     plt.show()
 
     fig.savefig("../Картинки/Спектры/Спектры 91 образца.png", dpi=500)
